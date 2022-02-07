@@ -36,6 +36,7 @@ h3 {
 
 .main {
     width: 75%;
+    overflow: auto;
 }
 
 .aside {
@@ -108,6 +109,41 @@ h3 {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
+}
+
+.list-item {
+    display: flex;
+    border: 2px solid #ece89d;
+    border-radius: 15px;
+    margin: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.list-img {
+    max-width: 200px;
+    height: 150px;
+    margin: 10px;
+}
+
+.list-info {
+    margin: 10px 10px;
+    text-align: start;
+}
+
+.list-name,
+.list-year {
+    display: inline-block;
+    margin: 15px 0 15px 10px;
+}
+
+.list-descr {
+    display: block;
+    text-overflow: ellipsis;
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 

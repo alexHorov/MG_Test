@@ -26,7 +26,7 @@ function init() {
                     <img src="${result[key].img}" alt="${result[key].name}" class="card-img">
 
                     <div class="card-desc">
-                        <h3 class="name">${result[key].name}</h3>
+                        <h3 class="card-name">${result[key].name}</h3>
                         <p class="year">${result[key].year}</p>
                     </div>
                 </div>
