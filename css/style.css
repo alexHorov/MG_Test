@@ -22,7 +22,7 @@ h3 {
 }
 
 .container {
-    margin: 10px auto;
+    margin: 50px auto;
     display: flex;
     justify-content: space-between;
     width: 95%;

@@ -18,6 +18,7 @@ function init() {
         .then(respons => respons.json())
         .then(result => {
             const movieCard = document.querySelector('.movie-card');
+            const movieList = document.querySelector('.movie-list')
             let key;
             for (key in result) {
 
@@ -32,10 +33,37 @@ function init() {
                 </div>
                 
                 `;
+
+                movieList.innerHTML += `
+                <div class="list-item">
+                    <img src="${result[key].img}" class="list-img" alt="${result[key].name}">
+                    <div class="list-info">
+                        <h3 class="list-name">${result[key].name}</h3>
+                        <p class="list-year">${result[key].year}</p>
+                        <p class="list-descr">
+                        ${result[key].description}
+                        </p>
+                        <div class="list-genre">
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                `;
+
+
+
                 console.log(result[key]);
+                // console.log(result[key].genres[key]);
 
 
             }
+
+
+
         })
 }
 init();
