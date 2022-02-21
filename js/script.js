@@ -22,6 +22,7 @@ function init() {
             toggleViewMode(result);
             renderFavoriteList(result);
 
+
         });
 
 
@@ -101,82 +102,42 @@ function removeFavoriteMovie(value) {
     localStorage.setItem('favorites', JSON.stringify(storageArray));
 }
 
+/* ----------------Добавляем активный клас к звезду из ЛокалСторадж */
 function setActiveFavoriteBtn() {
     let storageArray = JSON.parse(localStorage.getItem('favorites'))
     if (storageArray) {
         let allStarBtn = document.querySelectorAll('[data-id]');
         let arrBtn = Array.from(allStarBtn);
 
-        let idValue = arrBtn.map(el => el.getAttribute('data-id'));
+        let idValue = arrBtn.map(el => +el.getAttribute('data-id'));
+
+        let activeStar = idValue.filter((el, index) => {
+            for (let i = 0; i < storageArray.length; i++)
+                if (idValue[index] == storageArray[i]) {
+                    return el;
+                }
+
+        });
+
+        for (let btn of arrBtn) {
+            for (let i = 0; i < activeStar.length; i++) {
+                if (btn.dataset.id == activeStar[i]) {
+                    btn.childNodes[0].classList.add(ACTIVE_CLASS);
+                }
+            }
+        }
 
 
-        //   let activeStar = arrBtn.filter(el=>{
-        //     for (let i = 0; i < storageArray.length; i++){
-        //         if(el.id==storageArray[i])
-        //     }
-        //   })
 
 
-
-        // let activeStar = idValue.filter(function(el) {
-        //     for (let i = 0; i < storageArray.length; i++) {}
-
-        // })
-
-        // console.log(allStarBtn);
-        // console.log(storageArray);
-        // console.log(arrBtn.getAttribute('data-id'));
-        // console.log(idValue);
-        // console.log(activeStar);
+        console.log(allStarBtn);
+        console.log(storageArray);
+        // console.log(arrBtn);
+        console.log(idValue);
+        console.log(activeStar);
     }
 
 }
-
-
-// let activeStar = [];      
-// for (let i = 0; i < storageArray.length; i++) {
-//     for (let j = 0; j < idValue.length; j++) {
-//         if (idValue[i] = storageArray[i])
-//             activeStar.push(storageArray[i])
-//     }
-// }
-
-
-
-// if(storageArray[i] == idValue[i]){
-
-// }
-// let activeStar = idValue.filter(el => storageArray.indexof(el));
-// for (btn of allStarBtn) {
-//     for (let i = 0; i < activeStar.length; i++) {
-//         if (btn.dataset.id == activeStar[i]) {
-//             btn,
-//             childNodes[0].classList(ACTIVE_CLASS)
-//         }
-//     }
-// }
-
-
-
-
-
-
-const checkedFavoritStarUpdate = function() {
-    const allStars = document.querySelectorAll("[data-index-name]");
-    allStars.forEach((item) => {
-        if (favoritList.includes(item.getAttribute("data-index-name"))) {
-            item.classList.add("star-favorit-active");
-        } else if (!favoritList.includes(item.getAttribute("data-index-name"))) {
-            item.classList.remove("star-favorit-active");
-        }
-    });
-    addFavorit();
-};
-
-
-
-
-
 
 /* делаем проверку локал сторадж на наявнасть id, и те что есть добавляем в фаворит лист*/
 function renderFavoriteList(movie) {
