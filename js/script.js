@@ -21,6 +21,7 @@ function init() {
             renderMovieCard(result);
             toggleViewMode(result);
             renderFavoriteList(result);
+            changeGenresToLowerCase(result);
 
 
         });
@@ -127,14 +128,6 @@ function setActiveFavoriteBtn() {
             }
         }
 
-
-
-
-        console.log(allStarBtn);
-        console.log(storageArray);
-        // console.log(arrBtn);
-        console.log(idValue);
-        console.log(activeStar);
     }
 
 }
@@ -230,6 +223,20 @@ function addMovieToFavoriteList(movie) {
         //     getMovieDetails(movie.id)
         // })
 
+}
+/*-------Получаем жанры и меняем их */
+function changeGenresToLowerCase(item) {
+    const movieDB = item;
+
+    // movieDB.genres = item.genres.map(el => el.toLowerCase())
+
+    // return movieDB;
+    movieDB.forEach(el => {
+        el.genres.forEach(e => {
+            const areGen = e.toLowerCase();
+            console.log(areGen)
+        });
+    })
 }
 
 
