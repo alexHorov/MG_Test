@@ -226,19 +226,35 @@ function addMovieToFavoriteList(movie) {
 }
 /*-------Получаем жанры и меняем их */
 function changeGenresToLowerCase(item) {
-    const movieDB = item;
+    // const movieDB = item;
 
-    // movieDB.genres = item.genres.map(el => el.toLowerCase())
-
-    // return movieDB;
-    movieDB.forEach(el => {
+    item.forEach(el => {
         el.genres.forEach(e => {
             const areGen = e.toLowerCase();
             console.log(areGen)
         });
     })
 }
+/*
+function changeGenresToLowerCase(item) {
+    item.forEach(el => {
 
+        const movieDB = el;
+
+        movieDB.genres.forEach(() => {
+            movieDB.genres = el.genres.map(j => j.toLowerCase());
+            return movieDB.genres;
+
+        })
+        console.log(movieDB);
+
+
+    });
+    // console.log(item);
+    // console.log(arrGen);
+}
+
+*/
 
 
 /*----------------------------------Toggle view card or list------------------------------------- */
